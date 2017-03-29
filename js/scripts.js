@@ -1,56 +1,46 @@
 // Business Logic
+// Define master function that takes a user's sentence and returns a sentence in Pig Latin
 
 
 
-var myFunc = function(userStr) {
+var masterFunk = function(userStr) {
 
-  var userArrLetters =  userStr.split("");
+  var sentenceArray =  userStr.split(" ");
   var vowelsArr = ["a","e","i","o","u"];
-  var newArr = [];
+  var wordArray = [];
+  var finalArray = [];
 
-  userArrLetters.forEach(function(userArrLetter) {
-    vowelsArr.forEach(function(vowel) {
-      if (userArrLetter === vowel) {
-        newArr.push(userArrLetter);
-      }
+  sentenceArray.forEach(function(userWord) {
+
+    wordArray = userWord.split("");
+
+    wordArray.forEach(function(userLetter) {
+
+      vowelsArr.forEach(function(currentVowel) {
+
+        if (userLetter === currentVowel) {
+          finalArray.push(userLetter);
+        }
+
+      });
     });
   });
-
-  return newArr;
+  return finalArray;
 };
 
 
-// 
-// var myFunc = function(tmpArr) {
-//   tmpArr.split();
-//   return tmpArr;
-// }
 
-
-
-// for (i = 0 ; i < mySentence.length ; i++) {
-//   if (mySentence[i] === a e i o u ) {
-//     push ay to end of mySentence;
-//   }
-//
-// does begin with vowel?
-// does word have only one letter?
-
-
+// User Logic
 $(document).ready(function() {
-
   $("form#pigform").submit(function(event) {
     event.preventDefault();
 
     var userSent = $("input#piggy").val();
 
-    console.log(myFunc(userSent));
-
+    console.log(masterFunk(userSent));
 
     $(".output").show();
     $("p#result").text(userSent);
 
-
   });
-
 });
