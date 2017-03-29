@@ -1,3 +1,14 @@
 .output {
   display: none;
 }
+
+#result {
+  font-size: 24px;
+
+}
+
+#resultFinal {
+  font-size: 24px;
+  color: red;
+  font-weight: bolder;
+}

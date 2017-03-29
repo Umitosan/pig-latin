@@ -1,30 +1,43 @@
 // Business Logic
-// Define master function that takes a user's sentence and returns a sentence in Pig Latin
 
+// var reg = /^[a-zA-Z]/.test(userLetter);
+
+// Vowel checker function
+var isVowelFunc = function(letterToMatch) {
+  var vowelsArr = ["a","e","i","o","u"];
+  var test = vowelsArr.indexOf(letterToMatch);
+  if (test === -1) {
+
+    return false;
+  } else if (test >= 0) {
+    return true;
+  } else {
+    return 0;
+  }
+
+};
 
 
 var masterFunk = function(userStr) {
 
-  var sentenceArray =  userStr.split(" ");
-  var vowelsArr = ["a","e","i","o","u"];
+  var userStrSplit =  userStr.split(" ");
   var wordArray = [];
   var finalArray = [];
 
-  sentenceArray.forEach(function(userWord) {
+  userStrSplit.forEach(function(userWord) {
 
     wordArray = userWord.split("");
 
     wordArray.forEach(function(userLetter) {
 
-      vowelsArr.forEach(function(currentVowel) {
-
-        if (userLetter === currentVowel) {
-          finalArray.push(userLetter);
-        }
+        // test 1st letter for vowel
+        var tmp = isVowelFunc(userLetter);
+        console.log(tmp);
 
       });
+
     });
-  });
+
   return finalArray;
 };
 
@@ -37,10 +50,11 @@ $(document).ready(function() {
 
     var userSent = $("input#piggy").val();
 
-    console.log(masterFunk(userSent));
+    // console.log(masterFunk(userSent));
 
     $(".output").show();
-    $("p#result").text(userSent);
+    $("span#result").text(userSent);
+    $("span#resultFinal").text(masterFunk(userSent));
 
   });
 });
