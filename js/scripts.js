@@ -21,7 +21,7 @@ var isVowelFunc = function(letterToMatch) {
   } else if (test >= 0) {
     return true;
   } else {
-    return 0;
+    return "whatthemath";
   }
 };
 
@@ -31,8 +31,33 @@ var addWayFunc = function(tmpStr) {
   return newStr;
 };
 
+// moves all consonants in a row at the beginning of a word to the end, in same order, and adds "ay" last
+// remember, if you "return;" loops and functions exit immediatly
+var moveConsonantsFunc = function(tmpStr) {
+  var newStr = tmpStr;
+  for (i=0 ; i<tmpStr.length ; i++) {
+    if (isVowelFunc(tmpStr.charAt(i)) != true) {
+      newStr = newStr.concat((tmpStr.charAt(i)));
+      console.log("after concat " , newStr);
+      newStr = newStr.slice(1);
+      console.log("after slice " , newStr);
+    } else {
+      a=1;
+    }
+   }
+  alert();
+
+ newStr = newStr.concat("ay");
+ console.log("add ay " , newStr)
+ return newStr;
+};
+
+console.log(moveConsonantsFunc("thing"));
+
+// The solution to all your groovy problems
 var masterFunk = function(userStr) {
   var userStrSplit =  userStr.split(" ");
+  console.log("userStrSplit: " , userStrSplit);
   var wordArray = [];
   var finalArray = [];
   userStrSplit.forEach(function(userWord) {
