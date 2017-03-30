@@ -12,19 +12,19 @@
 
   <body>
     <div class="container">
-      <h1>Pig Latin Implementer</h1>
+      <h1 class="jumbotron">Pig Latin translator</h1>
 
       <form id="pigform">
         <div class="form-group">
           <label for="piggy">Enter a sentence to convert to Pig Latin</label>
-          <input id="piggy" type="text">
+          <input id="piggy" class="form-control" type="text" placeholder="Insert starting sentence">
         </div>
 
-        <button type="submit" class="btn">Convert!</button>
+        <button type="submit" class="btn btn-success">Convert!</button>
       </form>
 
       <div class="output">
-        <h3>Your pig latin sentence</h3>
+        <h3> - Outputs - </h3>
         <p>User Sentence:   <span id="result"></span></p>
         <p>Final Sentence:   <span id="resultFinal"></span></p>
       </div>
